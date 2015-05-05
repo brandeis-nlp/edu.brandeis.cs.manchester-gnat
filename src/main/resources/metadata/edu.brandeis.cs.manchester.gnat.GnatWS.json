@@ -1,6 +1,6 @@
 {
   "$schema" : "http://vocab.lappsgrid.org/schema/service-schema-1.0.0.json",
-  "version" : "2.0.0",
+  "version" : "0.0.1",
   "name": "edu.brandeis.cs.manchester.gnat.GnatWS",
   "description": "Manchester GNAT Web Services",
   "vendor" : "http://www.cs.brandeis.edu/",
