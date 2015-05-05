@@ -1,11 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <parent>
-		<groupId>org.lappsgrid.maven</groupId>
-		<artifactId>war-parent-pom</artifactId>
-		<version>2.0.0</version>
-    </parent>
+
 	<groupId>edu.brandeis.cs.lapps</groupId>
 	<artifactId>manchester-gnat</artifactId>
 	<version>2.0.0</version>
@@ -14,6 +10,16 @@
 	<description>
 	</description>
 
+	<distributionManagement>
+		<repository>
+			<id>anc-releases</id>
+			<url>http://www.anc.org:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>anc-snapshots</id>
+			<url>http://www.anc.org:8080/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
     <properties>
         <lapps.version>2.0.0</lapps.version>
@@ -110,12 +116,21 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.4.4</version>
         </dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-console</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-json</artifactId>
+			<version>2.4.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>opennlp-web-service#${project.version}</finalName>
+		<finalName>machester-gnat#${project.version}</finalName>
 		<plugins>
-            
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -129,7 +144,7 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-            
+
              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -144,37 +159,29 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
             </plugin>
-            
+
 			<!--<plugin>-->
 				<!--<artifactId>maven-compiler-plugin</artifactId>-->
-				<!--<version>2.3.2</version>-->
+				<!--&lt;!&ndash; 2.8.0-01 and later require maven-compiler-plugin 3.1 or higher &ndash;&gt;-->
+				<!--<version>3.1</version>-->
 				<!--<configuration>-->
-					<!--<source>1.6</source>-->
-					<!--<target>1.6</target>-->
+					<!--<compilerId>groovy-eclipse-compiler</compilerId>-->
 				<!--</configuration>-->
+				<!--<dependencies>-->
+					<!--<dependency>-->
+						<!--<groupId>org.codehaus.groovy</groupId>-->
+						<!--<artifactId>groovy-eclipse-compiler</artifactId>-->
+						<!--<version>2.9.1-01</version>-->
+					<!--</dependency>-->
+					<!--&lt;!&ndash; for 2.8.0-01 and later you must have an explicit dependency on groovy-eclipse-batch &ndash;&gt;-->
+					<!--<dependency>-->
+						<!--<groupId>org.codehaus.groovy</groupId>-->
+						<!--<artifactId>groovy-eclipse-batch</artifactId>-->
+						<!--<version>2.3.7-01</version>-->
+					<!--</dependency>-->
+				<!--</dependencies>-->
 			<!--</plugin>-->
 
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<!-- 2.8.0-01 and later require maven-compiler-plugin 3.1 or higher -->
-				<version>3.1</version>
-				<configuration>
-					<compilerId>groovy-eclipse-compiler</compilerId>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-compiler</artifactId>
-						<version>2.9.1-01</version>
-					</dependency>
-					<!-- for 2.8.0-01 and later you must have an explicit dependency on groovy-eclipse-batch -->
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-batch</artifactId>
-						<version>2.3.7-01</version>
-					</dependency>
-				</dependencies>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
