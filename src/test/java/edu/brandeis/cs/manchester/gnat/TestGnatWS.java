@@ -1,6 +1,5 @@
 package edu.brandeis.cs.manchester.gnat;
 
-import edu.brandeis.cs.json2json.Json2Json;
 import org.junit.Test;
 
 /**
@@ -8,6 +7,7 @@ import org.junit.Test;
  */
 public class TestGnatWS {
 
+    GnatWS gnat = new GnatWS();
 
     @Test
     public void testHttpGet()throws Exception{
@@ -16,7 +16,6 @@ public class TestGnatWS {
 
     @Test
     public void testText() throws Exception {
-        GnatWS gnat = new GnatWS();
         System.out.println(gnat.execute("beautiful gene saf sas p53"));
 
         //
