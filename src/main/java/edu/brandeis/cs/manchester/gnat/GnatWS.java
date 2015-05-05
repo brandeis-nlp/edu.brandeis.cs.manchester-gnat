@@ -83,7 +83,7 @@ public class GnatWS implements WebService, IGnat {
                 json.put("payload", payload);
             }
             payload.put("@context", "http://vocab.lappsgrid.org/context-1.0.0.jsonld");
-            String xml = httpget(s);
+            String xml = httpget(txt);
 
             System.out.println("\nXML : \n-----------------------\n"+ xml);
             String annotations =  Json2Json.xml2jsondsl(xml,
@@ -99,7 +99,7 @@ public class GnatWS implements WebService, IGnat {
             }
             JsonProxy.JsonObject view = JsonProxy.newObject();
             JsonProxy.JsonObject contains = JsonProxy.newObject();
-            contains.put(Discriminators.Uri.NE,JsonProxy.newObject().put("producer", this.getClass().getName() + ": 0.2.0")
+            contains.put(Discriminators.Uri.NE,JsonProxy.newObject().put("producer", this.getClass().getName() + ": 0.0.1")
             .put("type", "ner:gnat"));
             view.put("metadata", JsonProxy.newObject().put("contains", contains));
             view.put("annotations", annsobj.get("annotations"));
