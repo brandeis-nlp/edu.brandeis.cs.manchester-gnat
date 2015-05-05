@@ -10,6 +10,16 @@
 	<description>
 	</description>
 
+	<repositories>
+		<!--<repository>-->
+			<!--<id>clojars.org</id>-->
+			<!--<url>http://clojars.org/repo</url>-->
+		<!--</repository>-->
+		<repository>
+			<id>anc-releases</id>
+			<url>http://www.anc.org:8080/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
 	<distributionManagement>
 		<repository>
 			<id>anc-releases</id>
@@ -32,6 +42,13 @@
     </properties>
 
 	<dependencies>
+
+		<!--<dependency>-->
+			<!--<groupId>com.aliasi</groupId>-->
+			<!--<artifactId>lingpipe</artifactId>-->
+			<!--<version>4.0.1</version>-->
+		<!--</dependency>-->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
