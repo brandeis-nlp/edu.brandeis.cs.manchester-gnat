@@ -125,7 +125,6 @@ public class GnatWS implements WebService {
 
 
     public String getMetadata() {
-        {
             // get caller name using reflection
             String name = this.getClass().getName();
             //
@@ -152,7 +151,6 @@ public class GnatWS implements WebService {
                 json.put("payload", error);
                 return json.toString();
             }
-        }
     }
 }
 
