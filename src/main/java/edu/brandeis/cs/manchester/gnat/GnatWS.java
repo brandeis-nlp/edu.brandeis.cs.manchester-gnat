@@ -19,7 +19,7 @@ import java.io.StringWriter;
 import java.net.URI;
 
 
-public class GnatWS implements WebService {
+public class GnatWS implements WebService, IGnat {
 
     /**
      * http://gnat.sourceforge.net/
@@ -151,6 +151,10 @@ public class GnatWS implements WebService {
                 json.put("payload", error);
                 return json.toString();
             }
+    }
+
+    public String getAnnotationXml(String s) throws Exception{
+        return  httpget(s);
     }
 }
 
